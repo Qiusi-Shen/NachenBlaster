@@ -7,5 +7,12 @@
 
 class StudentWorld;
 
+// create an actor class as a basic of all the objects
+class Actor : public GraphObject{
+    public:
+        Actor();
+    private:
+} 
+
 
 #endif // ACTOR_H_
