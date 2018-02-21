@@ -90,6 +90,16 @@ class Cabbage : public Projectiles{
     private:
 };
 
+class Torpedoes  : public Projectiles{
+    public:
+    Torpedoes(StudentWorld* world, int startX, int startY)
+    : Projectiles(world, IID_TORPEDO, startX, startY, 0){}
+
+    virtual void doSomething();
+
+    private:
+};
+
 
 
 

@@ -47,6 +47,14 @@ void NachenBlaster::doSomething(){
                 getWorld()->playSound(SOUND_PLAYER_SHOOT);
                 Cabbage* c = new Cabbage(getWorld(), x+12, y);
                 getWorld()->createNewObject(c);
+            break;
+
+            case KEY_PRESS_TAB:
+                m_torpedoes--;
+                getWorld()->playSound(SOUND_TORPEDO);
+                Torpedoes* t = new Torpedoes(getWorld(), x+12, y);
+                getWorld()->createNewObject(t);
+            break;
             
         }
     }
@@ -81,4 +89,17 @@ void Cabbage::doSomething(){
     moveTo(getX()+8, getY());
     setDirection(getDirection() + 20);
 
+}
+
+// Torpedoes functions
+
+void Torpedoes::doSomething(){
+
+    // check torpedoes is alive
+    if(!isAlive()) return;
+
+    // check if is in bound
+    if(checkInBound()) return;
+
+    moveTo(getX()+8, getY());
 }
