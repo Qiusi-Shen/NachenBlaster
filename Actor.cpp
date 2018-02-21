@@ -23,38 +23,47 @@ void NachenBlaster::doSomething(){
         // User hit a key during this tick!
         switch(ch){
             case KEY_PRESS_LEFT:
+            {
                 if(x-6 < 0) return;
                     else moveTo(x-6, y);
             break;
+            }
             
-            case KEY_PRESS_RIGHT:
+            case KEY_PRESS_RIGHT:{
                 if(x + 6 >= VIEW_WIDTH) return;
                     else moveTo(x+6, y);
             break;
+            }
             
-            case KEY_PRESS_UP:
+            case KEY_PRESS_UP:{
                 if(y+ 6 >= VIEW_HEIGHT) return;
                     else moveTo(x, y+6);
             break;
+            }
             
-            case KEY_PRESS_DOWN:
+            case KEY_PRESS_DOWN:{
                 if(y-6 < 0) return;
                     else moveTo(x, y-6);
             break;
+            }
 
             case KEY_PRESS_SPACE:
+            {
                 m_cabbageEnergyPoint-=5;
                 getWorld()->playSound(SOUND_PLAYER_SHOOT);
                 Cabbage* c = new Cabbage(getWorld(), x+12, y);
                 getWorld()->createNewObject(c);
             break;
+            }
 
             case KEY_PRESS_TAB:
+            {
                 m_torpedoes--;
                 getWorld()->playSound(SOUND_TORPEDO);
                 Torpedoes* t = new Torpedoes(getWorld(), x+12, y);
                 getWorld()->createNewObject(t);
             break;
+            }
             
         }
     }
