@@ -3,9 +3,11 @@
 
 #include "GameWorld.h"
 #include <string>
+#include <vector>
+
 
 // Students:  Add code to this file, StudentWorld.cpp, Actor.h, and Actor.cpp
-
+class Actor;
 class StudentWorld : public GameWorld
 {
 public:
@@ -16,7 +18,9 @@ public:
     virtual void cleanUp();
 
 private:
-    int num_alien;
+    void createNewObject();
+    std::vector<Actor*> m_actors;
+    int num_alien_needed;
     int num_alien_killed;
 };
 
