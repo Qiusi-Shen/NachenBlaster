@@ -16,12 +16,21 @@ StudentWorld::StudentWorld(string assetDir)
 {
 }
 
+StudentWorld::~StudentWorld(){
+    cleanUp();
+}
+
 int StudentWorld::init()
 {   
     // initialize the number of alien needed to finish this level 6 + 4 * N
     num_alien_needed = 6 + 4 * getLevel();
     num_alien_killed = 0;
 
+    // Place NachenBlaster
+
+    m_actors.push_back(new NachenBlaster(this));
+
+    // Place 30 stars in the game
     for(int i =0; i < 30; i++){
         double startX = randInt(0, VIEW_WIDTH - 1);
         double startY = randInt(0, VIEW_HEIGHT - 1);

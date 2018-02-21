@@ -24,6 +24,22 @@ class Actor : public GraphObject{
     bool m_lifes;
 };
 
+class NachenBlaster : public Actor{
+    public:
+    NachenBlaster(StudentWorld* world)
+    : Actor(world, IID_NACHENBLASTER, 0, 128, 0, 1.0, 0){
+        m_hitPoint = 50;
+        m_cabbageEnergyPoint = 30;
+        m_torpedoes = 0;
+    }
+    virtual void doSomething();
+    virtual ~NachenBlaster(){};
+    private:
+    int m_hitPoint;
+    int m_cabbageEnergyPoint;
+    int m_torpedoes;
+};
+
 class Star : public Actor{
     public:
      Star(StudentWorld* world, int startX, int startY, double size)
