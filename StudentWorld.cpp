@@ -69,20 +69,17 @@ int StudentWorld::move()
         }
     }
 
-    createNewObject();
-    return GWSTATUS_CONTINUE_GAME;
-
-}
-
-void StudentWorld::cleanUp()
-{
-}
-
-void StudentWorld::createNewObject(){
+    //create a random star at rate 1/15
     if(randInt(1,15) ==10){
         double startX = VIEW_WIDTH - 1;
         double startY = randInt(0, VIEW_HEIGHT - 1);
         double size = randInt (1,10) * 0.05;
         m_actors.push_back(new Star(this, startX, startY, size));
     }
+    return GWSTATUS_CONTINUE_GAME;
 }
+
+void StudentWorld::cleanUp()
+{
+}
+

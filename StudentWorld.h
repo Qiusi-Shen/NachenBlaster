@@ -17,8 +17,10 @@ public:
     virtual int move();
     virtual void cleanUp();
 
+    void createNewObject(Actor* x) {m_actors.push_back(x);};
+
 private:
-    void createNewObject();
+    
     std::vector<Actor*> m_actors;
     int num_alien_needed;
     int num_alien_killed;

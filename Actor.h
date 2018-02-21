@@ -5,6 +5,18 @@
 #include "GameConstants.h"
 // Students:  Add code to this file, Actor.cpp, StudentWorld.h, and StudentWorld.cpp
 
+
+/*
+Required Classes:
+
+• The NachenBlaster
+• Aliens: Smallgons, Smoregons, Snagglegons
+• Stars
+• Projectiles: Cabbages, Turnips, Flatulence Torpedoes
+• Explosions
+• Goodies: Repair Goodies, Extra Life Goodies, Flatulence Torpedo Goodies
+*/
+
 class StudentWorld;
 
 // create an actor class as a basic of all the objects
@@ -19,6 +31,9 @@ class Actor : public GraphObject{
     void setLifes(int life){ m_lifes = life; }
 
     StudentWorld* getWorld(){return m_world;}
+
+    bool checkInBound();
+
     private:
     StudentWorld* m_world;
     bool m_lifes;
@@ -34,10 +49,17 @@ class NachenBlaster : public Actor{
     }
     virtual void doSomething();
     virtual ~NachenBlaster(){};
+
+    
+
     private:
     int m_hitPoint;
     int m_cabbageEnergyPoint;
     int m_torpedoes;
+};
+
+class Alien : public Actor{
+    public:
 };
 
 class Star : public Actor{
@@ -49,5 +71,26 @@ class Star : public Actor{
         virtual void doSomething();
 
 };
+
+class Projectiles : public Actor{
+    public:
+    Projectiles(StudentWorld* world, int imageID, int startX, int startY, int dir)
+    :Actor(world, imageID, startX, startY, dir, 0.5, 1){
+
+    }
+};
+
+class Cabbage : public Projectiles{
+    public: 
+    Cabbage(StudentWorld* world, int startX, int startY)
+    : Projectiles(world, IID_CABBAGE, startX, startY, 0){}
+
+    virtual void doSomething();
+
+    private:
+};
+
+
+
 
 #endif // ACTOR_H_
